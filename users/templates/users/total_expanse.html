@@ -1,0 +1,109 @@
+{% extends "blog/base_profile.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}    
+
+<div class="content-section">
+      <div class="media">
+        
+          <div class="media-body">
+            <h2 class="account-heading">BATLI HOUSE ACCOUNTS</h2>
+            <p class="text-secondary"></p>
+          </div>
+              <h2>Total Rs.{{ total }}</h2>
+
+      </div>
+    <div class="mt-5">
+           <a href="{% url 'form' %}"><button type="button" class="btn btn-primary">ADD MORE EXPANSE</button></a>
+      
+    </div>
+</div>
+
+
+
+
+
+<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'users/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{% static 'users/css/util.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'users/css/main.css' %}">
+
+  
+  <div class="content-section2">
+      <div class="media">
+        
+        <div class="media-body">
+          
+            <div class="limiter">
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+          <div class="table100-head">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1">Date</th>
+                  <th class="cell100 column2">Item</th>
+                  <th class="cell100 column3">Price</th>
+                  <th class="cell100 column4">Bought By</th>
+                  <th class="cell100 column5">Delete Records</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        {% for data in datas %}
+          <div class="table100-body js-pscroll">
+            <table>
+              <tbody>
+                <tr class="row100 body">
+                  <td class="cell100 column1">{{ data.date }}</td>
+                  <td class="cell100 column2">{{ data.item }}</td>
+                  <td class="cell100 column3">Rs.{{ data.price }}</td>
+                  <td class="cell100 column4">{{ data.person }}</td>
+               
+                </tr>
+        {% endfor %}
+
+               
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+
+      </div>
+
+    </div>
+<script src="{% static 'users/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="{% static 'users/vendor/bootstrap/js/popper.js' %}"></script>
+  <script src="{% static 'users/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="{% static 'users/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+  <script src="{% static 'users/vendor/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+  <script>
+    $('.js-pscroll').each(function(){
+      var ps = new PerfectScrollbar(this);
+
+      $(window).on('resize', function(){
+        ps.update();
+      })
+    });
+      
+    
+  </script>
+<!--===============================================================================================-->
+  <script src="{% static 'users/js/main.js' %}"></script>
+{% endblock content %}
