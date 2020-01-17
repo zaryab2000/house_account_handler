@@ -6,5 +6,7 @@ urlpatterns = [
     path('about/', views.about, name='blog-about'),
     path('forms/', views.data_entry_form, name='form'),
     path('total_expanse', views.total_expanse, name='total_expanse'),
+    path('delete/<int:post_id>/delete', views.delete_record, name='delete'),
+
 
 ]
