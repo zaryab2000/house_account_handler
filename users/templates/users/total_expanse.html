@@ -7,7 +7,7 @@
       <div class="media">
         
           <div class="media-body">
-            <h2 class="account-heading">BATLI HOUSE ACCOUNTS</h2>
+            <h2 class="account-heading">HOUSE ACCOUNTS HANDLER</h2>
             <p class="text-secondary"></p>
           </div>
               <h2>Total Rs.{{ total }}</h2>
@@ -70,6 +70,9 @@
                   <td class="cell100 column2">{{ data.item }}</td>
                   <td class="cell100 column3">Rs.{{ data.price }}</td>
                   <td class="cell100 column4">{{ data.person }}</td>
+                  <td class="cell100 column4">
+                    <a href="{% url 'delete' data.id%}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                </tr>
                
                 </tr>
         {% endfor %}
