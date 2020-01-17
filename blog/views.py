@@ -42,22 +42,11 @@ def total_expanse(request):
 
 	return render(request, 'users/total_expanse.html', context)
 
-# def delete_record(request, pk):
+@login_required
+def delete_record(request, post_id):
+	post = Post.objects.get(pk = post_id)
+	post.delete()
+	messages.info(request, f'Selected Record has been Deleted')
+	return redirect('total_expanse')
 
-# 	post = get_object_or_404(Post, pk=pk)
-# 	if request.method == 'POST':
-# 		post.delete()
-# 		messages.info(request, f'Selected Record has been Deleted')
-# 		return redirect('total_expanse')
-
-
-
-
-
-	# record = Post.objects.filter(name=post_item)
-	# record.delete()
-	# messages.info(request, f'Selected Record has been Deleted')
-	# return redirect('total_expanse')
-
-	# return render(request, 'users/total_expanse.html')
 
